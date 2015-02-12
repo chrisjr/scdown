@@ -4,11 +4,6 @@ import logging
 from datetime import datetime
 import requests
 import sys
-import tempfile
-try:
-    import json
-except ImportError:
-    import simplejson as json
 
 from celeryconfig import CELERY_RESULT_BACKEND
 import pymongo

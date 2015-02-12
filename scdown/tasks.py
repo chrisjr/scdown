@@ -41,8 +41,9 @@ class DatabaseTask(Task):
 
     @property
     def sc(self):
+        from scdown.celeryconfig import MONGOLAB_DB
         if self._sc is None:
-            self._sc = Sc(logger=logger)
+            self._sc = Sc(db_name=MONGOLAB_DB, logger=logger)
         return self._sc
 
     @property
