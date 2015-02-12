@@ -1,5 +1,6 @@
 from py2neo import Graph, Relationship
 import logging
+import os
 try:
     import json
 except ImportError:
@@ -41,7 +42,7 @@ class Neo(object):
 
     def __init__(self, graph=None, logger=logging.getLogger("")):
         if graph is None:
-            graph = Graph()
+            graph = Graph(os.getenv("GRAPHENEDB_URL"))
         self._graph = graph
         self.logger = logger
         for (l, p) in UNIQUES:
