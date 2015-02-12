@@ -8,6 +8,7 @@ import sys
 from celeryconfig import CELERY_RESULT_BACKEND
 import pymongo
 from pymongo import MongoClient
+from pymongo.errors import OperationFailure
 
 USER = '/users/{_id}'
 USER_TRACKS = '/users/{_id}/tracks'
@@ -32,9 +33,12 @@ class RequestDB(object):
         self.client = MongoClient(CELERY_RESULT_BACKEND)
         self.db = self.client[db_name]
         self.coll = self.db.requests
-        self.coll.ensure_index([("key", pymongo.ASCENDING),
-                               ("unique", True),
-                               ("dropDups", True)])
+        try:
+            self.coll.ensure_index([("key", pymongo.ASCENDING),
+                                   ("unique", True)])
+        except OperationFailure as e:
+            logger.error("Could not create index.")
+            logger.error(e)
 
     def get(self, key):
         v = self.coll.find_one({"key": key})
