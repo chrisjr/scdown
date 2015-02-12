@@ -19,3 +19,4 @@ requests==2.5.1
 simplejson==3.6.5
 soundcloud==0.4.1
 tornado==4.1
+-e .
