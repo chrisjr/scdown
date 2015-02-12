@@ -1,13 +1,22 @@
-# Skeleton of a CLI
+from __future__ import absolute_import
 
 import click
 
-import scdown
+import logging
+
+from scdown.tasks import process_user
+from scdown.sc import prefill_user
+
+logging.basicConfig(level=logging.INFO)
+
+mode = "download"
 
 
 @click.command('scdown')
-@click.argument('count', type=int, metavar='N')
-def cli(count):
-    """Echo a value `N` number of times"""
-    for i in range(count):
-        click.echo(scdown.has_legs)
+@click.argument('user_id', type=int, metavar='N')
+def cli(user_id):
+    """Process a user by id"""
+    if mode == "precache":
+        prefill_user(user_id)
+    else:
+        process_user(user_id)

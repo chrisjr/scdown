@@ -23,7 +23,10 @@ setup(name='scdown',
       install_requires=[
           'click',
           'celery',
-          'pymongo'
+          'boto',
+          'py2neo',
+          'pymongo',
+          'flower
       ],
       extras_require={
           'test': ['pytest'],
