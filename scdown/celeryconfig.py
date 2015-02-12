@@ -15,12 +15,14 @@ if mongolab is not None:
     uri = "mongodb://{}:{}".format(host, port)
     MONGOLAB_URI = uri
     MONGOLAB_DB = db
-    CELERY_RESULT_BACKEND = uri
-    CELERY_MONGODB_BACKEND_SETTINGS = {
-        'database': db,
-        'user': user,
-        'password': passwd
-    }
+    # CELERY_RESULT_BACKEND = uri
+    # CELERY_MONGODB_BACKEND_SETTINGS = {
+    #     'database': db,
+    #     'user': user,
+    #     'password': passwd
+    # }
+
+CELERY_RESULT_BACKEND = BROKER_URL
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
