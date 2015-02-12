@@ -1,4 +1,4 @@
-from py2neo import Graph, Relationship
+from py2neo import ServiceRoot, Relationship
 import logging
 import os
 try:
@@ -42,7 +42,9 @@ class Neo(object):
 
     def __init__(self, graph=None, logger=logging.getLogger("")):
         if graph is None:
-            graph = Graph(os.getenv("GRAPHENEDB_URL"))
+            graphenedb_url = os.environ.get("GRAPHENEDB_URL",
+                                            "http://localhost:7474/")
+            graph = ServiceRoot(graphenedb_url).graph
         self._graph = graph
         self.logger = logger
         for (l, p) in UNIQUES:
