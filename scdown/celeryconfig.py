@@ -1,6 +1,7 @@
 import os
 
 BROKER_URL = os.getenv("CLOUDAMQP_URL", 'amqp://')
+BROKER_POOL_LIMIT=None
 CELERY_RESULT_BACKEND = os.getenv("MONGOLAB_URI", 'mongodb://127.0.0.1:27017/')
 
 CELERY_TASK_SERIALIZER = 'json'
