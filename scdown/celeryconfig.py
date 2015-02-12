@@ -1,7 +1,7 @@
 import os
 
 BROKER_URL = os.getenv("CLOUDAMQP_URL", 'amqp://')
-BROKER_POOL_LIMIT = None
+# BROKER_POOL_LIMIT = None
 
 MONGOLAB_URI = None
 MONGOLAB_DB = None
