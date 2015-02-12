@@ -15,7 +15,6 @@ if mongolab is not None:
     uri = "mongodb://{}:{}".format(host, port)
     MONGOLAB_URI = uri
     MONGOLAB_DB = db
-    URI_WITH_AUTH = "mongodb://{}:{}@{}:{}".format(user, passwd, host, port)
     CELERY_RESULT_BACKEND = uri
     CELERY_MONGODB_BACKEND_SETTINGS = {
         'database': db,

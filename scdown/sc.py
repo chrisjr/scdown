@@ -5,7 +5,7 @@ from datetime import datetime
 import requests
 import sys
 
-from celeryconfig import URI_WITH_AUTH
+from celeryconfig import mongolab
 import pymongo
 from pymongo import MongoClient
 from pymongo.errors import OperationFailure
@@ -30,7 +30,7 @@ class RequestDB(object):
 
     def __init__(self, db_name="soundcloud", logger=logging.getLogger("")):
         self.logger = logger
-        self.client = MongoClient(URI_WITH_AUTH)
+        self.client = MongoClient(mongolab)
         self.db = self.client[db_name]
         self.coll = self.db.requests
         try:
