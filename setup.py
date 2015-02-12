@@ -26,7 +26,7 @@ setup(name='scdown',
           'boto',
           'py2neo',
           'pymongo',
-          'flower
+          'flower'
       ],
       extras_require={
           'test': ['pytest'],
