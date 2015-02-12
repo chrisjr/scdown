@@ -8,7 +8,6 @@ certifi==14.5.14
 click==3.3
 flower==0.7.3
 fudge==1.0.3
-jedi==0.8.1
 kombu==3.0.24
 nose==1.3.4
 py==1.4.26
@@ -17,7 +16,6 @@ pymongo==2.8
 pytest==2.6.4
 pytz==2014.10
 requests==2.5.1
--e git+https://github.com/chrisjr/scdown.git@6c9fb406156b7cd87881748115a6ce3edb4dbe66#egg=scdown-heroku_master
 simplejson==3.6.5
 soundcloud==0.4.1
 tornado==4.1
